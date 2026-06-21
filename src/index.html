@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Google AI Studio App</title>
+    <script>
+      // Make window.fetch writable to prevent polyfill errors in sandboxed iframes
+      (function() {
+        try {
+          let currentFetch = window.fetch;
+          const patch = {
+            get() {
+              return currentFetch;
+            },
+            set(val) {
+              currentFetch = val;
+            },
+            configurable: true,
+            enumerable: true
+          };
+          
+          // Try patching Window.prototype
+          if (typeof Window !== 'undefined' && Window.prototype && 'fetch' in Window.prototype) {
+            Object.defineProperty(Window.prototype, 'fetch', patch);
+          }
+          
+          // Try patching window itself
+          if ('fetch' in window) {
+            try {
+              Object.defineProperty(window, 'fetch', patch);
+            } catch (e) {
+              // Ignore if non-configurable
+            }
+          }
+
+          // Try patching globalThis
+          if (typeof globalThis !== 'undefined' && 'fetch' in globalThis) {
+            try {
+              Object.defineProperty(globalThis, 'fetch', patch);
+            } catch (e) {}
+          }
+        } catch (err) {
+          console.warn("Failed to patch fetch getter/setter:", err);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

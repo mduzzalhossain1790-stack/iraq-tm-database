@@ -1,0 +1,6 @@
+{
+  "name": "Iraq Trademark Certificate Generator",
+  "description": "An interactive digital studio to design, customize, and print authentic-quality bilingual (English & Arabic) Iraq Trademark Registration Certificates, based on official Iraqi standards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

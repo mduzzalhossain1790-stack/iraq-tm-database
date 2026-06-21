@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Great+Vibes&family=Cairo:wght@400;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-arabic: "Amiri", serif;
+  --font-display: "Cinzel", serif;
+  --font-signature: "Great Vibes", cursive;
+  --font-cairo: "Cairo", sans-serif;
+}
+
+/* Custom print-specific stylesheet overrides for digital certificate printing */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0 !important;
+  }
+  body, html {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  /* Hide all root children except the printing stage */
+  body > * {
+    display: none !important;
+  }
+  /* Show only the container containing the print element and the print element itself */
+  body > #root {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+  /* Ensure parent containers of the certificate do not hide or disrupt background styling */
+  #iraq-root-container, 
+  #main-portal-content, 
+  #digital-certificate-workspace, 
+  #search-layout, 
+  #verification-results-screen,
+  #secure-cert-tab-panel, 
+  #a4-certified-stage {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  /* Hide everything we don't want printed */
+  .no-print, 
+  header, 
+  footer, 
+  nav, 
+  #national-portal-header, 
+  #portal-actions, 
+  #search-controls-sidebar, 
+  #bengali-instruction-banner, 
+  #national-gateway-hero,
+  #details-subtabs-controller, 
+  #print-controls-bar,
+  #certified-document-envelope-gate {
+    display: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+  }
+  /* Target certificate preview and force it to fill A4 page fully without scaling problems */
+  #iraq-certificate-preview-container {
+    display: block !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    max-width: 210mm !important;
+    min-width: 210mm !important;
+    max-height: 297mm !important;
+    min-height: 297mm !important;
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    page-break-inside: avoid !important;
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
+    background-color: #ffffff !important;
+    z-index: 9999999 !important;
+    transform: none !important;
+  }
+}
+
+/* Custom fine dotted patterns or parchment effects */
+.parchment-glow {
+  background-image: radial-gradient(circle, rgba(254,252,242,0.6) 0%, rgba(255,255,255,1) 100%);
+}
+

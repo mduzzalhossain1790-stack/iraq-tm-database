@@ -1,0 +1,163 @@
+{
+  "entities": {
+    "Trademark": {
+      "title": "Trademark Certificate",
+      "description": "The official registry entry for a registered or pending trademark in Iraq.",
+      "type": "object",
+      "properties": {
+        "certificateType": {
+          "type": "string"
+        },
+        "badgeType": {
+          "type": "string"
+        },
+        "borderStyle": {
+          "type": "string"
+        },
+        "countryEn": {
+          "type": "string"
+        },
+        "countryAr": {
+          "type": "string"
+        },
+        "ministryEn": {
+          "type": "string"
+        },
+        "ministryAr": {
+          "type": "string"
+        },
+        "departmentEn": {
+          "type": "string"
+        },
+        "departmentAr": {
+          "type": "string"
+        },
+        "documentTitleEn": {
+          "type": "string"
+        },
+        "documentTitleAr": {
+          "type": "string"
+        },
+        "legalActEn": {
+          "type": "string"
+        },
+        "legalActAr": {
+          "type": "string"
+        },
+        "trademarkNameEn": {
+          "type": "string"
+        },
+        "trademarkNameAr": {
+          "type": "string"
+        },
+        "trademarkType": {
+          "type": "string"
+        },
+        "applicationNumber": {
+          "type": "string"
+        },
+        "certificateNumber": {
+          "type": "string"
+        },
+        "classNumber": {
+          "type": "string"
+        },
+        "priorityData": {
+          "type": "string"
+        },
+        "proprietorNameEn": {
+          "type": "string"
+        },
+        "proprietorNameAr": {
+          "type": "string"
+        },
+        "proprietorAddressEn": {
+          "type": "string"
+        },
+        "proprietorAddressAr": {
+          "type": "string"
+        },
+        "goodsServicesEn": {
+          "type": "string"
+        },
+        "goodsServicesAr": {
+          "type": "string"
+        },
+        "registrarPositionEn": {
+          "type": "string"
+        },
+        "registrarPositionAr": {
+          "type": "string"
+        },
+        "registrarNameEn": {
+          "type": "string"
+        },
+        "registrarNameAr": {
+          "type": "string"
+        },
+         "sealColor": {
+          "type": "string"
+        },
+         "sealStyle": {
+          "type": "string"
+        },
+        "showStamp": {
+          "type": "boolean"
+        },
+        "showSignature": {
+          "type": "boolean"
+        },
+        "showWatermark": {
+          "type": "boolean"
+        },
+        "signatureStyle": {
+          "type": "string"
+        },
+        "presetLogoId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "statusAr": {
+          "type": "string"
+        },
+        "dateOfFiling": {
+          "type": "string"
+        },
+        "dateOfRegistration": {
+          "type": "string"
+        },
+        "expiryDate": {
+          "type": "string"
+        },
+        "gazetteNumber": {
+          "type": "string"
+        },
+        "isVerified": {
+          "type": "boolean"
+        },
+        "qrCodeUrl": {
+          "type": "string"
+        },
+        "passkey": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "certificateNumber",
+        "trademarkNameEn",
+        "applicationNumber"
+      ]
+    }
+  },
+  "firestore": {
+    "/trademarks/{trademarkId}": {
+      "schema": "#/entities/Trademark",
+      "description": "Collection of all public and pending trademarks in the database."
+    }
+  }
+}
